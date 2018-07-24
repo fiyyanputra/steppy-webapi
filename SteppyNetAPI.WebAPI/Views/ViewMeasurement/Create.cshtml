@@ -1,0 +1,84 @@
+﻿@model SteppyNetAPI.WebAPI.Models.OpenMeasurement.STEPPY_API_t_loose_measurement
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>STEPPY_API_t_loose_measurement</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_measurement)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_measurement)
+            @Html.ValidationMessageFor(model => model.id_measurement)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_user)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_user)
+            @Html.ValidationMessageFor(model => model.id_user)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.device_type)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.device_type)
+            @Html.ValidationMessageFor(model => model.device_type)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.measurement_type)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.measurement_type)
+            @Html.ValidationMessageFor(model => model.measurement_type)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.value)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.value)
+            @Html.ValidationMessageFor(model => model.value)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.epoch_timestamp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.epoch_timestamp)
+            @Html.ValidationMessageFor(model => model.epoch_timestamp)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.inserted_timestamp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.inserted_timestamp)
+            @Html.ValidationMessageFor(model => model.inserted_timestamp)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

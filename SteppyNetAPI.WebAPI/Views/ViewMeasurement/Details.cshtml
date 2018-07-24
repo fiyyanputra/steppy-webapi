@@ -1,0 +1,64 @@
+﻿@model SteppyNetAPI.WebAPI.Models.OpenMeasurement.STEPPY_API_t_loose_measurement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>STEPPY_API_t_loose_measurement</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_measurement)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_measurement)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_user)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_user)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.device_type)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.device_type)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.measurement_type)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.measurement_type)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.value)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.value)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.epoch_timestamp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.epoch_timestamp)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.inserted_timestamp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.inserted_timestamp)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

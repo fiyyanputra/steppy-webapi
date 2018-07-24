@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4fef1e6a4cff4e0ea2d1132b12d9c423" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_API_m_contact" Width="2" PointX="4" PointY="6" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_API_m_measurement_type" Width="2.5" PointX="9.625" PointY="9.75" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_API_m_user" Width="2.125" PointX="6.75" PointY="6.625" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_API_t_security_token" Width="2.375" PointX="3.625" PointY="8.5" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.sysdiagram" Width="2.25" PointX="0.75" PointY="10.375" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_API_v_user_friend" Width="2.5" PointX="0.5" PointY="8.25" />
+        <AssociationConnector Association="STEPPY_APIModel.FK_m_contact_m_user" />
+        <AssociationConnector Association="STEPPY_APIModel.FK_t_security_token_m_user" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_API_m_country" Width="2.5" PointX="3.875" PointY="11.25" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_API_t_user_profile" Width="2.5" PointX="3.875" PointY="13.375" />
+        <AssociationConnector Association="STEPPY_APIModel.FK_STEPPY_API_m_user_STEPPY_API_m_country" ></AssociationConnector>
+        <AssociationConnector Association="STEPPY_APIModel.FK_STEPPY_API_t_user_profile_STEPPY_API_m_user" ></AssociationConnector>
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_API_t_measurement" Width="1.5" PointX="10" PointY="6.75" />
+        <AssociationConnector Association="STEPPY_APIModel.FK__STEPPY_AP__id_me__00EA0E6F" />
+        <AssociationConnector Association="STEPPY_APIModel.FK__STEPPY_AP__id_us__01DE32A8" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.UserProfile" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.webpages_Membership" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.webpages_UsersInRoles" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.DCHANNEL_User_Patient" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_API_BAND_Heartrate" Width="1.5" PointX="9.125" PointY="0.75" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_API_BAND_Step" Width="1.5" PointX="10.875" PointY="0.75" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_Gamification_Mission" Width="1.5" PointX="13" PointY="4.375" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_Gamification_Record" Width="1.5" PointX="7.375" PointY="12.75" />
+        <EntityTypeShape EntityType="STEPPY_APIModel.STEPPY_new_record" Width="1.5" PointX="9.375" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

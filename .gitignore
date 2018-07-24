@@ -1,0 +1,19 @@
+# built application files
+SteppyNetAPI.WebAPI.Tests/bin/*
+SteppyNetAPI.WebAPI.Tests/obj/*
+SteppyNetAPI.WebAPI/Properties/*
+SteppyNetAPI.WebAPI/bin/*
+SteppyNetAPI.WebAPI/obj/*
+*.suo
+*.ini
+SteppyNetAPI.WebAPI/Web.config
+/UpgradeLog.htm
+/UpgradeLog2.htm
+/UpgradeLog3.htm
+/UpgradeLog4.htm
+/UpgradeLog5.htm
+/UpgradeLog6.htm
+/UpgradeLog7.htm
+/UpgradeLog8.htm
+/Database Script.sql
+/STEPPY API Documentation for Developer.docx

@@ -1,0 +1,110 @@
+﻿@model List<SteppyNetAPI.WebAPI.Models.OpenMeasurement.OpenDataMeasurementViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.TodayDate = DateTime.Now.ToString("yyyy-MM-dd");
+}
+
+<div class="container" style="margin-left:20px; margin-right:20px">
+<h2>Measurement Result Data</h2>
+
+
+@using (Html.BeginForm("Index", "ViewMeasurement", FormMethod.Get))
+{
+
+    <fieldset>
+        <legend>Search</legend>
+
+        <div class="editor-label">
+            User ID:
+        </div>
+        <div class="editor-field">
+            <input type="text" name="UserId" value="@Request.QueryString["UserId"]"/>
+        </div>
+
+        <div class="editor-label">
+            Measurement Type:
+        </div>
+        <div class="editor-field">
+            <input type="text" name="Type" value="@Request.QueryString["Type"]"/>
+        </div>
+        <div class="editor-label">
+            Start Date:
+        </div>
+        <div class="editor-field">
+            @if(Request.QueryString["StartDate"] != null){
+                <input type="date" name="StartDate" value="@Request.QueryString["StartDate"]" required="required"/>
+            }else{
+                <input type="date" name="StartDate" value="@ViewBag.TodayDate" required="required"/>
+            }
+        </div>
+        <div class="editor-label">
+            Last Date:
+        </div>
+        <div class="editor-field">
+            @if(Request.QueryString["LastDate"] != null){
+                <input type="date" name="LastDate" value="@Request.QueryString["LastDate"]" required="required"/>
+            }else{
+                <input type="date" name="LastDate" value="@ViewBag.TodayDate" required="required"/>
+            }
+        </div>
+    </fieldset>
+    
+    <input type="submit" value="Search"/>
+}
+
+<table style="width:100%">
+    <tr>
+        <th>
+            ID Measurement
+        </th>
+        <th>
+           ID User
+        </th>
+        <th>
+            Device Type/Serial Number
+        </th>
+        <th>
+            Measurement Type
+        </th>
+        <th>
+            Value
+        </th>
+        <th>
+            Epoch Time Stamp
+        </th>
+        <th>
+           Inserted Time Stamp
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.OrderBy(x => x.TimeStamp)) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdMeasurement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value)
+        </td>
+        <td>
+            @(new DateTime(1970, 1,1).AddMilliseconds((double)item.TimeStamp).ToString("yyyy-MM-dd hh:mm:ss.FF tt"))
+        </td>
+        <td>
+            @(new DateTime(1970, 1,1).AddMilliseconds((double)item.InsertedTime).ToString("yyyy-MM-dd hh:mm:ss.FF tt"))
+        </td>
+    </tr>
+}
+
+</table>
+
+</div>

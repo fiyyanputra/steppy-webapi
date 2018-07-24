@@ -1,0 +1,68 @@
+﻿@model SteppyNetAPI.WebAPI.Models.OpenMeasurement.STEPPY_API_t_loose_measurement
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>STEPPY_API_t_loose_measurement</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_measurement)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_measurement)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_user)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_user)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.device_type)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.device_type)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.measurement_type)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.measurement_type)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.value)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.value)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.epoch_timestamp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.epoch_timestamp)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.inserted_timestamp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.inserted_timestamp)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

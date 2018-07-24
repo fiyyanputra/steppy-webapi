@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OPEN_APIContainer.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="OPEN_APIContainerStoreContainer">
+          <EntitySet Name="STEPPY_API_t_loose_measurement" EntityType="OPEN_APIContainer.Store.STEPPY_API_t_loose_measurement" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="STEPPY_API_t_loose_measurement">
+          <Key>
+            <PropertyRef Name="id_measurement" />
+          </Key>
+          <Property Name="id_measurement" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_user" Type="varchar" MaxLength="128" />
+          <Property Name="device_type" Type="varchar" MaxLength="20" />
+          <Property Name="measurement_type" Type="int" />
+          <Property Name="value" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="epoch_timestamp" Type="bigint" />
+          <Property Name="inserted_timestamp" Type="bigint" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OPEN_APIContainer" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="OpenMeasurementConnection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="STEPPY_API_t_loose_measurement" EntityType="OPEN_APIContainer.STEPPY_API_t_loose_measurement" />
+        </EntityContainer>
+        <EntityType Name="STEPPY_API_t_loose_measurement">
+          <Key>
+            <PropertyRef Name="id_measurement" />
+          </Key>
+          <Property Name="id_measurement" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_user" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="device_type" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="measurement_type" Type="Int32" />
+          <Property Name="value" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="epoch_timestamp" Type="Int64" />
+          <Property Type="Int64" Name="inserted_timestamp" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OPEN_APIContainerStoreContainer" CdmEntityContainer="OpenMeasurementConnection">
+          <EntitySetMapping Name="STEPPY_API_t_loose_measurement">
+            <EntityTypeMapping TypeName="OPEN_APIContainer.STEPPY_API_t_loose_measurement">
+              <MappingFragment StoreEntitySet="STEPPY_API_t_loose_measurement">
+                <ScalarProperty Name="inserted_timestamp" ColumnName="inserted_timestamp" />
+                <ScalarProperty Name="id_measurement" ColumnName="id_measurement" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="device_type" ColumnName="device_type" />
+                <ScalarProperty Name="measurement_type" ColumnName="measurement_type" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="epoch_timestamp" ColumnName="epoch_timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

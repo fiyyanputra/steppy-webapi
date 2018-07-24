@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteppyNetAPI.WebAPI", "SteppyNetAPI.WebAPI\SteppyNetAPI.WebAPI.csproj", "{FC16607B-E52B-4E0A-B7FE-007D974C8305}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC16607B-E52B-4E0A-B7FE-007D974C8305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC16607B-E52B-4E0A-B7FE-007D974C8305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC16607B-E52B-4E0A-B7FE-007D974C8305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC16607B-E52B-4E0A-B7FE-007D974C8305}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BEF1CF78-8E6B-4D05-9CDD-CD5A2B44963E}
+	EndGlobalSection
+EndGlobal

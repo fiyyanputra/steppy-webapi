@@ -1,0 +1,914 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="STEPPY_APIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="DCHANNEL_User_Patient">
+          <Key>
+            <PropertyRef Name="Patient_ID" />
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="Patient_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="Join_date" Type="datetime" />
+          <Property Name="Last_Login" Type="datetime" />
+          <Property Name="Patient_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Birth_Date" Type="date" />
+          <Property Name="Birth_Place" Type="varchar" MaxLength="1000" />
+          <Property Name="ID_Card_Number" Type="varchar" MaxLength="100" />
+          <Property Name="Telp_Number" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="generated_guid" Type="varchar" MaxLength="40" />
+          <Property Name="Sex" Type="varchar" MaxLength="10" />
+          <Property Name="Current_City" Type="varchar" MaxLength="100" />
+          <Property Name="Current_Address" Type="varchar" MaxLength="1024" />
+          <Property Name="description" Type="varchar" MaxLength="1024" />
+          <Property Name="Profile_Pic_Url" Type="varchar" MaxLength="1024" />
+          <Property Name="Last_Edited" Type="datetime" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_BAND_Heartrate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="UserID" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="tanggal" Type="date" />
+          <Property Name="jam_mulai" Type="time" Precision="7" />
+          <Property Name="jam_akhir" Type="time" Precision="7" />
+          <Property Name="heartrate" Type="bigint" />
+          <Property Name="keterangan" Type="varchar" MaxLength="255" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id_shesop" Type="char" MaxLength="100" />
+          <Property Name="pace" Type="numeric" Precision="8" Scale="4" />
+          <Property Name="speed" Type="numeric" Precision="8" Scale="4" />
+          <Property Name="temperature" Type="numeric" Precision="8" Scale="4" />
+          <Property Name="uv_level" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_BAND_Step">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="UserID" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="tanggal" Type="date" />
+          <Property Name="jam_mulai" Type="time" Precision="7" />
+          <Property Name="jam_akhir" Type="time" Precision="7" />
+          <Property Name="step" Type="bigint" />
+          <Property Name="keterangan" Type="varchar" MaxLength="255" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id_shesop" Type="char" MaxLength="100" />
+          <Property Name="calorie" Type="bigint" />
+          <Property Name="distance" Type="numeric" Precision="12" Scale="4" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_m_contact">
+          <Key>
+            <PropertyRef Name="id_contact" />
+          </Key>
+          <Property Name="id_contact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="telp_number" Type="varchar" MaxLength="30" />
+          <Property Name="id_user" Type="int" />
+          <Property Name="is_registered" Type="bit" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_m_country">
+          <Key>
+            <PropertyRef Name="id_country" />
+          </Key>
+          <Property Name="id_country" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="country_name" Type="varchar" MaxLength="256" />
+          <Property Name="country_phone_prefix" Type="varchar" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_m_measurement_type">
+          <Key>
+            <PropertyRef Name="id_measurement_type" />
+          </Key>
+          <Property Name="id_measurement_type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="measurement_type_name" Type="varchar" MaxLength="20" />
+          <Property Name="measurement_type_unit" Type="varchar" MaxLength="20" />
+          <Property Name="measurement_description" Type="varchar" MaxLength="512" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_m_user">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="telp_number" Type="varchar" MaxLength="30" />
+          <Property Name="display_name" Type="varchar" MaxLength="50" />
+          <Property Name="join_date" Type="datetime" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="128" />
+          <Property Name="last_login" Type="datetime" />
+          <Property Name="last_logout" Type="datetime" />
+          <Property Name="id_country" Type="int" />
+          <Property Name="id_user_shesop" Type="int" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_t_measurement">
+          <Key>
+            <PropertyRef Name="id_measurement" />
+          </Key>
+          <Property Name="id_measurement" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="value" Type="decimal" Precision="8" Scale="4" />
+          <Property Name="timestamp" Type="bigint" />
+          <Property Name="id_measurement_type" Type="int" />
+          <Property Name="id_user" Type="int" />
+          <Property Name="insert_time" Type="bigint" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_t_security_token">
+          <Key>
+            <PropertyRef Name="id_token" />
+          </Key>
+          <Property Name="id_token" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_user" Type="int" />
+          <Property Name="security_token" Type="varchar" MaxLength="50" />
+          <Property Name="request_date" Type="datetime" />
+          <Property Name="expired_date" Type="datetime" />
+          <Property Name="is_logout" Type="bit" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_t_user_profile">
+          <Key>
+            <PropertyRef Name="id_profile" />
+          </Key>
+          <Property Name="id_profile" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hi_score" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="current_experience" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="current_level" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="next_level_experience" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="gold" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="diamond" Type="int" />
+          <Property Name="id_user" Type="int" />
+          <Property Name="current_score" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="profile_image" Type="varchar" MaxLength="512" />
+        </EntityType>
+        <EntityType Name="STEPPY_Gamification_Mission">
+          <Key>
+            <PropertyRef Name="IdLevel" />
+          </Key>
+          <Property Name="IdLevel" Type="int" Nullable="false" />
+          <Property Name="Mission1" Type="bigint" />
+          <Property Name="Mission2" Type="numeric" Precision="12" Scale="4" />
+          <Property Name="Mission3" Type="bigint" />
+          <Property Name="Mission4" Type="numeric" Precision="12" Scale="4" />
+        </EntityType>
+        <EntityType Name="STEPPY_Gamification_Record">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="IdUserShesop" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Mission1" Type="numeric" Precision="8" Scale="4" />
+          <Property Name="Mission2" Type="numeric" Precision="8" Scale="4" />
+          <Property Name="Mission3" Type="numeric" Precision="8" Scale="4" />
+          <Property Name="Mission4" Type="numeric" Precision="8" Scale="4" />
+          <Property Name="IdLevel" Type="int" />
+          <Property Name="Point" Type="numeric" Precision="8" Scale="4" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STEPPY_new_record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="tanggal" Type="date" />
+          <Property Name="jam_mulai" Type="time" Precision="7" />
+          <Property Name="jam_akhir" Type="time" Precision="7" />
+          <Property Name="step" Type="bigint" />
+          <Property Name="kalori" Type="bigint" />
+          <Property Name="jenis_sensor" Type="varchar" MaxLength="255" />
+          <Property Name="keterangan" Type="varchar" MaxLength="255" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id_shesop" Type="int" />
+          <Property Name="distance" Type="numeric" Precision="12" Scale="4" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="56" Nullable="false" />
+          <Property Name="NoTelp" Type="varchar" MaxLength="20" />
+          <Property Name="Umur" Type="int" />
+          <Property Name="Tinggi" Type="int" />
+          <Property Name="BeratBadan" Type="int" />
+          <Property Name="JenisKelamin" Type="varchar" MaxLength="10" />
+          <Property Name="Profesi" Type="varchar" MaxLength="30" />
+          <Property Name="TglLahir" Type="datetime" />
+          <Property Name="NamaDepan" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'hostingShesop.dbo.STEPPY_API_v_user_friend' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="STEPPY_API_v_user_friend">
+          <Key>
+            <PropertyRef Name="id_contact" />
+          </Key>
+          <Property Name="id_contact" Type="int" Nullable="false" />
+          <Property Name="telp_number" Type="varchar" MaxLength="30" />
+          <Property Name="friend_id_user" Type="int" />
+          <Property Name="display_name" Type="varchar" MaxLength="50" />
+          <Property Name="id_user" Type="int" />
+        </EntityType>
+        <EntityContainer Name="STEPPY_APIModelStoreContainer">
+          <EntitySet Name="DCHANNEL_User_Patient" EntityType="Self.DCHANNEL_User_Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_API_BAND_Heartrate" EntityType="Self.STEPPY_API_BAND_Heartrate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_API_BAND_Step" EntityType="Self.STEPPY_API_BAND_Step" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_API_m_contact" EntityType="Self.STEPPY_API_m_contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_API_m_country" EntityType="Self.STEPPY_API_m_country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_API_m_measurement_type" EntityType="Self.STEPPY_API_m_measurement_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_API_m_user" EntityType="Self.STEPPY_API_m_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_API_t_measurement" EntityType="Self.STEPPY_API_t_measurement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_API_t_security_token" EntityType="Self.STEPPY_API_t_security_token" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_API_t_user_profile" EntityType="Self.STEPPY_API_t_user_profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_Gamification_Mission" EntityType="Self.STEPPY_Gamification_Mission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_Gamification_Record" EntityType="Self.STEPPY_Gamification_Record" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_new_record" EntityType="Self.STEPPY_new_record" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STEPPY_API_v_user_friend" EntityType="Self.STEPPY_API_v_user_friend" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[STEPPY_API_v_user_friend].[id_contact] AS [id_contact], 
+[STEPPY_API_v_user_friend].[telp_number] AS [telp_number], 
+[STEPPY_API_v_user_friend].[friend_id_user] AS [friend_id_user], 
+[STEPPY_API_v_user_friend].[display_name] AS [display_name], 
+[STEPPY_API_v_user_friend].[id_user] AS [id_user]
+FROM [dbo].[STEPPY_API_v_user_friend] AS [STEPPY_API_v_user_friend]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="STEPPY_APIModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="STEPPY_APIContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="STEPPY_API_m_contact" EntityType="STEPPY_APIModel.STEPPY_API_m_contact" />
+          <EntitySet Name="STEPPY_API_m_measurement_type" EntityType="STEPPY_APIModel.STEPPY_API_m_measurement_type" />
+          <EntitySet Name="STEPPY_API_m_user" EntityType="STEPPY_APIModel.STEPPY_API_m_user" />
+          <EntitySet Name="STEPPY_API_t_security_token" EntityType="STEPPY_APIModel.STEPPY_API_t_security_token" />
+          <EntitySet Name="sysdiagrams" EntityType="STEPPY_APIModel.sysdiagram" />
+          <EntitySet Name="STEPPY_API_v_user_friend" EntityType="STEPPY_APIModel.STEPPY_API_v_user_friend" />
+          <AssociationSet Name="FK_m_contact_m_user" Association="STEPPY_APIModel.FK_m_contact_m_user">
+            <End Role="STEPPY_API_m_user" EntitySet="STEPPY_API_m_user" />
+            <End Role="STEPPY_API_m_contact" EntitySet="STEPPY_API_m_contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t_security_token_m_user" Association="STEPPY_APIModel.FK_t_security_token_m_user">
+            <End Role="STEPPY_API_m_user" EntitySet="STEPPY_API_m_user" />
+            <End Role="STEPPY_API_t_security_token" EntitySet="STEPPY_API_t_security_token" />
+          </AssociationSet>
+          <EntitySet Name="STEPPY_API_m_country" EntityType="STEPPY_APIModel.STEPPY_API_m_country" />
+          <EntitySet Name="STEPPY_API_t_user_profile" EntityType="STEPPY_APIModel.STEPPY_API_t_user_profile" />
+          <AssociationSet Name="FK_STEPPY_API_m_user_STEPPY_API_m_country" Association="STEPPY_APIModel.FK_STEPPY_API_m_user_STEPPY_API_m_country">
+            <End Role="STEPPY_API_m_country" EntitySet="STEPPY_API_m_country" />
+            <End Role="STEPPY_API_m_user" EntitySet="STEPPY_API_m_user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STEPPY_API_t_user_profile_STEPPY_API_m_user" Association="STEPPY_APIModel.FK_STEPPY_API_t_user_profile_STEPPY_API_m_user">
+            <End Role="STEPPY_API_m_user" EntitySet="STEPPY_API_m_user" />
+            <End Role="STEPPY_API_t_user_profile" EntitySet="STEPPY_API_t_user_profile" />
+          </AssociationSet>
+          <EntitySet Name="STEPPY_API_t_measurement" EntityType="STEPPY_APIModel.STEPPY_API_t_measurement" />
+          <AssociationSet Name="FK__STEPPY_AP__id_me__00EA0E6F" Association="STEPPY_APIModel.FK__STEPPY_AP__id_me__00EA0E6F">
+            <End Role="STEPPY_API_m_measurement_type" EntitySet="STEPPY_API_m_measurement_type" />
+            <End Role="STEPPY_API_t_measurement" EntitySet="STEPPY_API_t_measurement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__STEPPY_AP__id_us__01DE32A8" Association="STEPPY_APIModel.FK__STEPPY_AP__id_us__01DE32A8">
+            <End Role="STEPPY_API_m_user" EntitySet="STEPPY_API_m_user" />
+            <End Role="STEPPY_API_t_measurement" EntitySet="STEPPY_API_t_measurement" />
+          </AssociationSet>
+          <EntitySet Name="UserProfiles" EntityType="STEPPY_APIModel.UserProfile" />
+          <EntitySet Name="webpages_Membership" EntityType="STEPPY_APIModel.webpages_Membership" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="STEPPY_APIModel.webpages_UsersInRoles" />
+          <EntitySet Name="DCHANNEL_User_Patient" EntityType="STEPPY_APIModel.DCHANNEL_User_Patient" />
+          <EntitySet Name="STEPPY_API_BAND_Heartrate" EntityType="STEPPY_APIModel.STEPPY_API_BAND_Heartrate" />
+          <EntitySet Name="STEPPY_API_BAND_Step" EntityType="STEPPY_APIModel.STEPPY_API_BAND_Step" />
+          <EntitySet Name="STEPPY_Gamification_Mission" EntityType="STEPPY_APIModel.STEPPY_Gamification_Mission" />
+          <EntitySet Name="STEPPY_Gamification_Record" EntityType="STEPPY_APIModel.STEPPY_Gamification_Record" />
+          <EntitySet Name="STEPPY_new_record" EntityType="STEPPY_APIModel.STEPPY_new_record" />
+        </EntityContainer>
+        <EntityType Name="STEPPY_API_m_contact">
+          <Key>
+            <PropertyRef Name="id_contact" />
+          </Key>
+          <Property Type="Int32" Name="id_contact" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="telp_number" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="id_user" />
+          <Property Type="Boolean" Name="is_registered" />
+          <NavigationProperty Name="STEPPY_API_m_user" Relationship="STEPPY_APIModel.FK_m_contact_m_user" FromRole="STEPPY_API_m_contact" ToRole="STEPPY_API_m_user" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_m_measurement_type">
+          <Key>
+            <PropertyRef Name="id_measurement_type" />
+          </Key>
+          <Property Type="Int32" Name="id_measurement_type" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="measurement_type_name" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="measurement_type_unit" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="measurement_description" MaxLength="512" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STEPPY_API_t_measurement" Relationship="STEPPY_APIModel.FK__STEPPY_AP__id_me__00EA0E6F" FromRole="STEPPY_API_m_measurement_type" ToRole="STEPPY_API_t_measurement" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_m_user">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Type="Int32" Name="id_user" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="telp_number" MaxLength="30" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="display_name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="join_date" Nullable="false" Precision="3" />
+          <Property Type="String" Name="password" MaxLength="128" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Type="DateTime" Name="last_login" Precision="3" />
+          <Property Type="DateTime" Name="last_logout" Precision="3" />
+          <NavigationProperty Name="STEPPY_API_m_contact" Relationship="STEPPY_APIModel.FK_m_contact_m_user" FromRole="STEPPY_API_m_user" ToRole="STEPPY_API_m_contact" />
+          <NavigationProperty Name="STEPPY_API_t_security_token" Relationship="STEPPY_APIModel.FK_t_security_token_m_user" FromRole="STEPPY_API_m_user" ToRole="STEPPY_API_t_security_token" />
+          <Property Type="Int32" Name="id_country" />
+          <NavigationProperty Name="STEPPY_API_m_country" Relationship="STEPPY_APIModel.FK_STEPPY_API_m_user_STEPPY_API_m_country" FromRole="STEPPY_API_m_user" ToRole="STEPPY_API_m_country" />
+          <NavigationProperty Name="STEPPY_API_t_user_profile" Relationship="STEPPY_APIModel.FK_STEPPY_API_t_user_profile_STEPPY_API_m_user" FromRole="STEPPY_API_m_user" ToRole="STEPPY_API_t_user_profile" />
+          <NavigationProperty Name="STEPPY_API_t_measurement" Relationship="STEPPY_APIModel.FK__STEPPY_AP__id_us__01DE32A8" FromRole="STEPPY_API_m_user" ToRole="STEPPY_API_t_measurement" />
+          <Property Name="id_user_shesop" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_t_security_token">
+          <Key>
+            <PropertyRef Name="id_token" />
+          </Key>
+          <Property Type="Int64" Name="id_token" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_user" />
+          <Property Type="String" Name="security_token" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="request_date" Precision="3" />
+          <Property Type="DateTime" Name="expired_date" Precision="3" />
+          <Property Type="Boolean" Name="is_logout" />
+          <NavigationProperty Name="STEPPY_API_m_user" Relationship="STEPPY_APIModel.FK_t_security_token_m_user" FromRole="STEPPY_API_t_security_token" ToRole="STEPPY_API_m_user" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_v_user_friend">
+          <Key>
+            <PropertyRef Name="id_contact" />
+          </Key>
+          <Property Type="Int32" Name="id_contact" Nullable="false" />
+          <Property Type="String" Name="telp_number" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="friend_id_user" />
+          <Property Type="String" Name="display_name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="id_user" />
+        </EntityType>
+        <Association Name="FK_m_contact_m_user">
+          <End Type="STEPPY_APIModel.STEPPY_API_m_user" Role="STEPPY_API_m_user" Multiplicity="0..1" />
+          <End Type="STEPPY_APIModel.STEPPY_API_m_contact" Role="STEPPY_API_m_contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STEPPY_API_m_user">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="STEPPY_API_m_contact">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t_security_token_m_user">
+          <End Type="STEPPY_APIModel.STEPPY_API_m_user" Role="STEPPY_API_m_user" Multiplicity="0..1" />
+          <End Type="STEPPY_APIModel.STEPPY_API_t_security_token" Role="STEPPY_API_t_security_token" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STEPPY_API_m_user">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="STEPPY_API_t_security_token">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="STEPPY_API_m_country">
+          <Key>
+            <PropertyRef Name="id_country" />
+          </Key>
+          <Property Type="Int32" Name="id_country" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="country_name" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="country_phone_prefix" MaxLength="6" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STEPPY_API_m_user" Relationship="STEPPY_APIModel.FK_STEPPY_API_m_user_STEPPY_API_m_country" FromRole="STEPPY_API_m_country" ToRole="STEPPY_API_m_user" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_t_user_profile">
+          <Key>
+            <PropertyRef Name="id_profile" />
+          </Key>
+          <Property Type="Int32" Name="id_profile" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Decimal" Name="hi_score" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="current_experience" />
+          <Property Type="Int32" Name="current_level" />
+          <Property Type="Int32" Name="next_level_experience" />
+          <Property Type="Int32" Name="gold" />
+          <Property Type="Int32" Name="diamond" />
+          <Property Type="Int32" Name="id_user" />
+          <NavigationProperty Name="STEPPY_API_m_user" Relationship="STEPPY_APIModel.FK_STEPPY_API_t_user_profile_STEPPY_API_m_user" FromRole="STEPPY_API_t_user_profile" ToRole="STEPPY_API_m_user" />
+          <Property Type="Decimal" Name="current_score" Precision="10" Scale="2" />
+          <Property Type="String" Name="profile_image" MaxLength="512" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_STEPPY_API_m_user_STEPPY_API_m_country">
+          <End Type="STEPPY_APIModel.STEPPY_API_m_country" Role="STEPPY_API_m_country" Multiplicity="0..1" />
+          <End Type="STEPPY_APIModel.STEPPY_API_m_user" Role="STEPPY_API_m_user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STEPPY_API_m_country">
+              <PropertyRef Name="id_country" />
+            </Principal>
+            <Dependent Role="STEPPY_API_m_user">
+              <PropertyRef Name="id_country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STEPPY_API_t_user_profile_STEPPY_API_m_user">
+          <End Type="STEPPY_APIModel.STEPPY_API_m_user" Role="STEPPY_API_m_user" Multiplicity="0..1" />
+          <End Type="STEPPY_APIModel.STEPPY_API_t_user_profile" Role="STEPPY_API_t_user_profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STEPPY_API_m_user">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="STEPPY_API_t_user_profile">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="STEPPY_API_t_measurement">
+          <Key>
+            <PropertyRef Name="id_measurement" />
+          </Key>
+          <Property Type="Int64" Name="id_measurement" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Decimal" Name="value" Precision="8" Scale="4" />
+          <Property Type="Int64" Name="timestamp" />
+          <Property Type="Int32" Name="id_measurement_type" />
+          <Property Type="Int32" Name="id_user" />
+          <Property Type="Int64" Name="insert_time" />
+          <NavigationProperty Name="STEPPY_API_m_measurement_type" Relationship="STEPPY_APIModel.FK__STEPPY_AP__id_me__00EA0E6F" FromRole="STEPPY_API_t_measurement" ToRole="STEPPY_API_m_measurement_type" />
+          <NavigationProperty Name="STEPPY_API_m_user" Relationship="STEPPY_APIModel.FK__STEPPY_AP__id_us__01DE32A8" FromRole="STEPPY_API_t_measurement" ToRole="STEPPY_API_m_user" />
+        </EntityType>
+        <Association Name="FK__STEPPY_AP__id_me__00EA0E6F">
+          <End Type="STEPPY_APIModel.STEPPY_API_m_measurement_type" Role="STEPPY_API_m_measurement_type" Multiplicity="0..1" />
+          <End Type="STEPPY_APIModel.STEPPY_API_t_measurement" Role="STEPPY_API_t_measurement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STEPPY_API_m_measurement_type">
+              <PropertyRef Name="id_measurement_type" />
+            </Principal>
+            <Dependent Role="STEPPY_API_t_measurement">
+              <PropertyRef Name="id_measurement_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__STEPPY_AP__id_us__01DE32A8">
+          <End Type="STEPPY_APIModel.STEPPY_API_m_user" Role="STEPPY_API_m_user" Multiplicity="0..1" />
+          <End Type="STEPPY_APIModel.STEPPY_API_t_measurement" Role="STEPPY_API_t_measurement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STEPPY_API_m_user">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="STEPPY_API_t_measurement">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
+          <Property Name="NoTelp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Umur" Type="Int32" />
+          <Property Name="Tinggi" Type="Int32" />
+          <Property Name="BeratBadan" Type="Int32" />
+          <Property Name="JenisKelamin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Profesi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TglLahir" Type="DateTime" Precision="3" />
+          <Property Name="NamaDepan" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DCHANNEL_User_Patient">
+          <Key>
+            <PropertyRef Name="Patient_ID" />
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="Patient_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Join_date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Login" Type="DateTime" Precision="3" />
+          <Property Name="Patient_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Birth_Date" Type="DateTime" Precision="0" />
+          <Property Name="Birth_Place" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Card_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telp_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="generated_guid" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Current_City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Current_Address" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="Profile_Pic_Url" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Edited" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_BAND_Heartrate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="tanggal" Type="DateTime" Precision="0" />
+          <Property Name="jam_mulai" Type="Time" Precision="7" />
+          <Property Name="jam_akhir" Type="Time" Precision="7" />
+          <Property Name="heartrate" Type="Int64" />
+          <Property Name="keterangan" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id_shesop" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="pace" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="speed" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="temperature" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="uv_level" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="STEPPY_API_BAND_Step">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="tanggal" Type="DateTime" Precision="0" />
+          <Property Name="jam_mulai" Type="Time" Precision="7" />
+          <Property Name="jam_akhir" Type="Time" Precision="7" />
+          <Property Name="step" Type="Int64" />
+          <Property Name="keterangan" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id_shesop" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="calorie" Type="Int64" />
+          <Property Name="distance" Type="Decimal" Precision="12" Scale="4" />
+        </EntityType>
+        <EntityType Name="STEPPY_Gamification_Mission">
+          <Key>
+            <PropertyRef Name="IdLevel" />
+          </Key>
+          <Property Name="IdLevel" Type="Int32" Nullable="false" />
+          <Property Name="Mission1" Type="Int64" />
+          <Property Name="Mission2" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="Mission3" Type="Int64" />
+          <Property Name="Mission4" Type="Decimal" Precision="12" Scale="4" />
+        </EntityType>
+        <EntityType Name="STEPPY_Gamification_Record">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="IdUserShesop" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Mission1" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="Mission2" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="Mission3" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="Mission4" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="IdLevel" Type="Int32" />
+          <Property Name="Point" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="STEPPY_new_record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="tanggal" Type="DateTime" Precision="0" />
+          <Property Name="jam_mulai" Type="Time" Precision="7" />
+          <Property Name="jam_akhir" Type="Time" Precision="7" />
+          <Property Name="step" Type="Int64" />
+          <Property Name="kalori" Type="Int64" />
+          <Property Name="jenis_sensor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="keterangan" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id_shesop" Type="Int32" />
+          <Property Name="distance" Type="Decimal" Precision="12" Scale="4" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="STEPPY_APIModelStoreContainer" CdmEntityContainer="STEPPY_APIContainer">
+          <EntitySetMapping Name="STEPPY_API_m_contact">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_API_m_contact">
+              <MappingFragment StoreEntitySet="STEPPY_API_m_contact">
+                <ScalarProperty Name="is_registered" ColumnName="is_registered" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="telp_number" ColumnName="telp_number" />
+                <ScalarProperty Name="id_contact" ColumnName="id_contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_API_m_measurement_type">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_API_m_measurement_type">
+              <MappingFragment StoreEntitySet="STEPPY_API_m_measurement_type">
+                <ScalarProperty Name="measurement_description" ColumnName="measurement_description" />
+                <ScalarProperty Name="measurement_type_unit" ColumnName="measurement_type_unit" />
+                <ScalarProperty Name="measurement_type_name" ColumnName="measurement_type_name" />
+                <ScalarProperty Name="id_measurement_type" ColumnName="id_measurement_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_API_m_user">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_API_m_user">
+              <MappingFragment StoreEntitySet="STEPPY_API_m_user">
+                <ScalarProperty Name="id_user_shesop" ColumnName="id_user_shesop" />
+                <ScalarProperty Name="id_country" ColumnName="id_country" />
+                <ScalarProperty Name="last_logout" ColumnName="last_logout" />
+                <ScalarProperty Name="last_login" ColumnName="last_login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="join_date" ColumnName="join_date" />
+                <ScalarProperty Name="display_name" ColumnName="display_name" />
+                <ScalarProperty Name="telp_number" ColumnName="telp_number" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_API_t_security_token">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_API_t_security_token">
+              <MappingFragment StoreEntitySet="STEPPY_API_t_security_token">
+                <ScalarProperty Name="is_logout" ColumnName="is_logout" />
+                <ScalarProperty Name="expired_date" ColumnName="expired_date" />
+                <ScalarProperty Name="request_date" ColumnName="request_date" />
+                <ScalarProperty Name="security_token" ColumnName="security_token" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_token" ColumnName="id_token" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_API_v_user_friend">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_API_v_user_friend">
+              <MappingFragment StoreEntitySet="STEPPY_API_v_user_friend">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="display_name" ColumnName="display_name" />
+                <ScalarProperty Name="friend_id_user" ColumnName="friend_id_user" />
+                <ScalarProperty Name="telp_number" ColumnName="telp_number" />
+                <ScalarProperty Name="id_contact" ColumnName="id_contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_API_m_country">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_API_m_country">
+              <MappingFragment StoreEntitySet="STEPPY_API_m_country">
+                <ScalarProperty Name="country_phone_prefix" ColumnName="country_phone_prefix" />
+                <ScalarProperty Name="country_name" ColumnName="country_name" />
+                <ScalarProperty Name="id_country" ColumnName="id_country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_API_t_user_profile">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_API_t_user_profile">
+              <MappingFragment StoreEntitySet="STEPPY_API_t_user_profile">
+                <ScalarProperty Name="profile_image" ColumnName="profile_image" />
+                <ScalarProperty Name="current_score" ColumnName="current_score" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="diamond" ColumnName="diamond" />
+                <ScalarProperty Name="gold" ColumnName="gold" />
+                <ScalarProperty Name="next_level_experience" ColumnName="next_level_experience" />
+                <ScalarProperty Name="current_level" ColumnName="current_level" />
+                <ScalarProperty Name="current_experience" ColumnName="current_experience" />
+                <ScalarProperty Name="hi_score" ColumnName="hi_score" />
+                <ScalarProperty Name="id_profile" ColumnName="id_profile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_API_t_measurement">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_API_t_measurement">
+              <MappingFragment StoreEntitySet="STEPPY_API_t_measurement">
+                <ScalarProperty Name="insert_time" ColumnName="insert_time" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_measurement_type" ColumnName="id_measurement_type" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id_measurement" ColumnName="id_measurement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="NamaDepan" ColumnName="NamaDepan" />
+                <ScalarProperty Name="TglLahir" ColumnName="TglLahir" />
+                <ScalarProperty Name="Profesi" ColumnName="Profesi" />
+                <ScalarProperty Name="JenisKelamin" ColumnName="JenisKelamin" />
+                <ScalarProperty Name="BeratBadan" ColumnName="BeratBadan" />
+                <ScalarProperty Name="Tinggi" ColumnName="Tinggi" />
+                <ScalarProperty Name="Umur" ColumnName="Umur" />
+                <ScalarProperty Name="NoTelp" ColumnName="NoTelp" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_UsersInRoles">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.webpages_UsersInRoles">
+              <MappingFragment StoreEntitySet="webpages_UsersInRoles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DCHANNEL_User_Patient">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.DCHANNEL_User_Patient">
+              <MappingFragment StoreEntitySet="DCHANNEL_User_Patient">
+                <ScalarProperty Name="Last_Edited" ColumnName="Last_Edited" />
+                <ScalarProperty Name="Profile_Pic_Url" ColumnName="Profile_Pic_Url" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Current_Address" ColumnName="Current_Address" />
+                <ScalarProperty Name="Current_City" ColumnName="Current_City" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="generated_guid" ColumnName="generated_guid" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Telp_Number" ColumnName="Telp_Number" />
+                <ScalarProperty Name="ID_Card_Number" ColumnName="ID_Card_Number" />
+                <ScalarProperty Name="Birth_Place" ColumnName="Birth_Place" />
+                <ScalarProperty Name="Birth_Date" ColumnName="Birth_Date" />
+                <ScalarProperty Name="Patient_Name" ColumnName="Patient_Name" />
+                <ScalarProperty Name="Last_Login" ColumnName="Last_Login" />
+                <ScalarProperty Name="Join_date" ColumnName="Join_date" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Patient_ID" ColumnName="Patient_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_API_BAND_Heartrate">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_API_BAND_Heartrate">
+              <MappingFragment StoreEntitySet="STEPPY_API_BAND_Heartrate">
+                <ScalarProperty Name="uv_level" ColumnName="uv_level" />
+                <ScalarProperty Name="temperature" ColumnName="temperature" />
+                <ScalarProperty Name="speed" ColumnName="speed" />
+                <ScalarProperty Name="pace" ColumnName="pace" />
+                <ScalarProperty Name="user_id_shesop" ColumnName="user_id_shesop" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+                <ScalarProperty Name="heartrate" ColumnName="heartrate" />
+                <ScalarProperty Name="jam_akhir" ColumnName="jam_akhir" />
+                <ScalarProperty Name="jam_mulai" ColumnName="jam_mulai" />
+                <ScalarProperty Name="tanggal" ColumnName="tanggal" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_API_BAND_Step">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_API_BAND_Step">
+              <MappingFragment StoreEntitySet="STEPPY_API_BAND_Step">
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="calorie" ColumnName="calorie" />
+                <ScalarProperty Name="user_id_shesop" ColumnName="user_id_shesop" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+                <ScalarProperty Name="step" ColumnName="step" />
+                <ScalarProperty Name="jam_akhir" ColumnName="jam_akhir" />
+                <ScalarProperty Name="jam_mulai" ColumnName="jam_mulai" />
+                <ScalarProperty Name="tanggal" ColumnName="tanggal" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_Gamification_Mission">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_Gamification_Mission">
+              <MappingFragment StoreEntitySet="STEPPY_Gamification_Mission">
+                <ScalarProperty Name="Mission4" ColumnName="Mission4" />
+                <ScalarProperty Name="Mission3" ColumnName="Mission3" />
+                <ScalarProperty Name="Mission2" ColumnName="Mission2" />
+                <ScalarProperty Name="Mission1" ColumnName="Mission1" />
+                <ScalarProperty Name="IdLevel" ColumnName="IdLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_Gamification_Record">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_Gamification_Record">
+              <MappingFragment StoreEntitySet="STEPPY_Gamification_Record">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Point" ColumnName="Point" />
+                <ScalarProperty Name="IdLevel" ColumnName="IdLevel" />
+                <ScalarProperty Name="Mission4" ColumnName="Mission4" />
+                <ScalarProperty Name="Mission3" ColumnName="Mission3" />
+                <ScalarProperty Name="Mission2" ColumnName="Mission2" />
+                <ScalarProperty Name="Mission1" ColumnName="Mission1" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IdUserShesop" ColumnName="IdUserShesop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STEPPY_new_record">
+            <EntityTypeMapping TypeName="STEPPY_APIModel.STEPPY_new_record">
+              <MappingFragment StoreEntitySet="STEPPY_new_record">
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="user_id_shesop" ColumnName="user_id_shesop" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+                <ScalarProperty Name="jenis_sensor" ColumnName="jenis_sensor" />
+                <ScalarProperty Name="kalori" ColumnName="kalori" />
+                <ScalarProperty Name="step" ColumnName="step" />
+                <ScalarProperty Name="jam_akhir" ColumnName="jam_akhir" />
+                <ScalarProperty Name="jam_mulai" ColumnName="jam_mulai" />
+                <ScalarProperty Name="tanggal" ColumnName="tanggal" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
